@@ -15,6 +15,8 @@ function displayText(number) {
   pinInput.value += number;
 }
 
+//Matching Operations
+
 function matching() {
   const matching = document.querySelector(".submit-btn");
   matching.addEventListener("click", function () {
@@ -23,8 +25,12 @@ function matching() {
 
     if (generatedPin == calculatorPin) {
       document.querySelector("#matchedText").style.display = "block";
+      document.querySelector("#didnotMatchText").style.display = "none";
     } else {
       document.querySelector("#didnotMatchText").style.display = "block";
+      document.querySelector("#matchedText").style.display = "none";
+      const trial = parseFloat(document.getElementById("trial-left").innerText);
+      document.getElementById("trial-left").innerText = trial - 1;
     }
   });
 }
@@ -33,26 +39,25 @@ matching();
 
 //BacK/delete Button's Operation
 
-function deleteText() {
-  const backBtnOperation = document.getElementById("backBtn");
-  backBtnOperation.addEventListener("click", function () {
-    const valueOfCalInput = document.querySelector(".form-control").value;
-    valueOfCalInput = value.substr(0, value.length - 1);
-  });
-}
-deleteText();
+const backBtnOperation = document.getElementById("backBtn");
+backBtnOperation.addEventListener("click", function () {
+  let valueOfCalInput = document.querySelector(".form-control");
+  //valueOfCalInput.substr(0, valueOfCalInput.length - 1);
+  valueOfCalInput.value = valueOfCalInput.value.slice(0, -1);
+});
 
 function clearText() {
   const clearBtnOperation = document.getElementById("clearBtn");
   clearBtnOperation.addEventListener("click", function () {
-    const valueOfCalInput = document.querySelector(".form-control").value;
-    valueOfCalInput = " ";
+    const valueOfCalInput = (document.querySelector(".form-control").value =
+      " ");
   });
 }
 clearText();
 
-//Clear Button's Operation
+//Back/Delete Button's Operation (Extra)
+//For this function you have to put onclick="deleteText()" on html file (line:45)
 
 // const deleteText = () => {
-//   form-control.innerText = display.innerText.slice(0, -1);
+//   pinInput.value = pinInput.value.slice(0, -1);
 // };
