@@ -72,7 +72,7 @@ input[type="text"]:focus {
 
 .button {
   width: 20%;
-  background: #425062;
+  background: #495bc3;
   color: #fff;
   padding: 20px 0;
   margin: 5px;
@@ -103,6 +103,18 @@ input[type="text"]:focus {
   padding: 10px 120px;
   border-radius: 5px;
   background: #495bc3;
+  color: #fff;
+}
+
+.submit-btn:hover {
+  background-color: #425062;
+}
+.submit-btn:active {
+  border: none;
+  margin-top: 20px;
+  padding: 10px 120px;
+  border-radius: 5px;
+  background-color: #798e3e;
   color: #fff;
 }
 .notify {
